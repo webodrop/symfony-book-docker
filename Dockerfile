@@ -36,7 +36,22 @@ RUN set -eux; \
 		intl \
 		opcache \
 		zip \
+		pdo_pgsql \
+		xsl \
+		amqp \
+		gd \
+		openssl \
+		sodium \
+		redis \
+		curl \
     ;
+
+RUN apk add --no-cache bash \
+	&& curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' |  bash \
+	&& apk add symfony-cli \
+	;
+
+RUN apk add nodejs npm;
 
 ###> recipes ###
 ###< recipes ###
